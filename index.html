@@ -864,6 +864,130 @@ body.modal-open{overflow:hidden}
 }
 .compare-foot svg{width:16px;height:16px;flex:0 0 auto;margin-top:1px;color:var(--accent)}
 
+.hero-urgency{
+  display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:7px 14px;
+  font-size:.76rem;line-height:1.4;color:var(--ink-2);
+  background:rgba(185,74,36,.07);border:1px solid rgba(185,74,36,.18);border-radius:999px;
+}
+.hero-urgency b{color:var(--accent);font-weight:700}
+.hero-urgency i{
+  width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;
+  box-shadow:0 0 0 0 rgba(185,74,36,.45);animation:urgPulse 2.2s infinite;
+}
+@keyframes urgPulse{
+  0%{box-shadow:0 0 0 0 rgba(185,74,36,.4)}
+  70%{box-shadow:0 0 0 7px rgba(185,74,36,0)}
+  100%{box-shadow:0 0 0 0 rgba(185,74,36,0)}
+}
+
+/* ============================================================
+   10b. Advantages
+   ============================================================ */
+.adv{position:relative}
+.adv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.adv-card{
+  position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
+  border-radius:20px;padding:22px 22px 20px;box-shadow:var(--shadow-sm);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s;
+}
+.adv-card::after{
+  content:"";position:absolute;right:-34px;top:-34px;width:130px;height:130px;border-radius:50%;
+  background:radial-gradient(circle,rgba(185,74,36,.12),transparent 70%);opacity:0;transition:opacity .5s;
+}
+.adv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--line-2)}
+.adv-card:hover::after{opacity:1}
+.adv-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
+.adv-icon{
+  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(18,20,15,.05);border:1px solid var(--line);color:var(--forest);
+  transition:background .4s,color .4s,transform .5s var(--ease);
+}
+.adv-icon svg{width:19px;height:19px}
+.adv-card:hover .adv-icon{transform:translateY(-2px)}
+.adv-card--hot .adv-icon{background:var(--accent-2);border-color:rgba(185,74,36,.18);color:var(--accent)}
+.adv-ghost{font-family:var(--font-display);font-size:1.55rem;font-weight:600;color:var(--line-2);letter-spacing:-.04em;line-height:1}
+.adv-card h3{font-size:1.02rem;letter-spacing:-.02em;margin:16px 0 7px;line-height:1.2;position:relative}
+.adv-card p{font-size:.83rem;line-height:1.55;color:var(--muted);position:relative}
+.adv-flag{
+  display:inline-flex;align-items:center;gap:5px;margin-top:13px;position:relative;
+  font-size:.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);
+}
+.adv-flag svg{width:11px;height:11px}
+.adv-truth{
+  display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;
+  margin-top:16px;padding:20px 24px;border-radius:18px;
+  background:var(--forest);color:#F4F0E6;position:relative;overflow:hidden;
+}
+.adv-truth::before{
+  content:"";position:absolute;right:-10%;top:-70%;width:38%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(216,84,44,.32),transparent 65%);pointer-events:none;
+}
+.adv-truth svg{width:22px;height:22px;color:#E9A183;flex:0 0 auto}
+.adv-truth p{font-size:.9rem;line-height:1.55;color:rgba(244,240,230,.72);position:relative}
+.adv-truth b{color:#F4F0E6}
+
+/* ============================================================
+   10c. Cost of waiting
+   ============================================================ */
+.cost{
+  position:relative;border-block:1px solid var(--line);
+  background:linear-gradient(180deg,var(--paper) 0%,#F0EADA 12%,#F0EADA 88%,var(--paper) 100%);
+}
+.cost-shell{display:grid;grid-template-columns:1.04fr .96fr;gap:16px;align-items:stretch}
+.calc{
+  display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--line);border-radius:24px;
+  padding:clamp(20px,3vw,30px);box-shadow:var(--shadow-sm);
+}
+.calc-head{display:flex;align-items:center;gap:9px;font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.calc-head svg{width:15px;height:15px;color:var(--accent)}
+.calc h3{font-size:clamp(1.2rem,2vw,1.5rem);letter-spacing:-.03em;margin:12px 0 6px;line-height:1.15}
+.calc > p{font-size:.84rem;line-height:1.55;color:var(--muted);max-width:40ch}
+.calc-fields{display:grid;gap:10px;margin:18px 0}
+.calc-field{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;
+  padding:10px 12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.55);
+}
+.calc-field label{font-size:.79rem;line-height:1.35;color:var(--ink-2);font-weight:500}
+.calc-input{
+  display:inline-flex;align-items:center;gap:2px;background:#fff;border:1px solid var(--line-2);
+  border-radius:10px;padding:6px 9px;font-weight:600;font-size:.9rem;color:var(--ink);
+  transition:border-color .25s,box-shadow .25s;
+}
+.calc-input > span{font-size:.78rem;color:var(--muted);font-weight:500}
+.calc-input input{
+  width:78px;border:0;background:none;font:inherit;color:inherit;text-align:right;padding:0;
+  -moz-appearance:textfield;appearance:textfield;
+}
+.calc-input input::-webkit-outer-spin-button,.calc-input input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.calc-input input:focus{outline:none}
+.calc-input:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(185,74,36,.12)}
+.calc-out{background:var(--forest);border-radius:18px;padding:20px;color:#F4F0E6;position:relative;overflow:hidden}
+.calc-out::before{
+  content:"";position:absolute;right:-20%;top:-45%;width:70%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(216,84,44,.35),transparent 65%);
+}
+.calc-out small{display:block;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,240,230,.55);position:relative}
+.calc-big{
+  font-family:var(--font-display);font-size:clamp(1.95rem,4.4vw,2.8rem);letter-spacing:-.04em;
+  line-height:1;margin:8px 0 4px;position:relative;font-variant-numeric:tabular-nums;
+}
+.calc-big em{font-style:normal;font-size:.4em;letter-spacing:0;color:rgba(244,240,230,.6);font-family:var(--font-body);font-weight:500;margin-left:6px}
+.calc-year{position:relative;font-size:.76rem;color:rgba(244,240,230,.62)}
+.calc-year b{color:#F0C6B3}
+.calc-foot{position:relative;margin-top:12px;padding-top:12px;border-top:1px solid rgba(244,240,230,.14);font-size:.71rem;line-height:1.5;color:rgba(244,240,230,.55)}
+.cost-side{display:flex;flex-direction:column;gap:10px}
+.cost-item{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:15px 16px;border-radius:17px;background:rgba(255,255,255,.5);border:1px solid var(--line)}
+.cost-item i{width:38px;height:38px;border-radius:12px;background:rgba(185,74,36,.09);display:grid;place-items:center;flex:0 0 auto}
+.cost-item svg{width:17px;height:17px;color:var(--accent)}
+.cost-item b{display:block;font-size:.875rem;line-height:1.3;margin-bottom:2px}
+.cost-item span{display:block;font-size:.78rem;line-height:1.5;color:var(--muted)}
+.cost-kicker{
+  margin-top:auto;padding:16px 18px;border-radius:16px;border:1px dashed var(--line-2);
+  font-size:.8rem;line-height:1.55;color:var(--ink-2);background:rgba(255,255,255,.35);
+}
+.cost-kicker b{color:var(--accent)}
+
 /* ============================================================
    11. Process
    ============================================================ */
@@ -913,6 +1037,13 @@ body.modal-open{overflow:hidden}
 .cta-inner h2{font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.01;letter-spacing:-.04em;margin:18px auto 18px;max-width:19ch}
 .cta-inner h2 .serif{font-size:1.06em;color:#F0C6B3}
 .cta-inner > p{max-width:50ch;margin-inline:auto;color:rgba(244,240,230,.68);font-size:1rem;line-height:1.65}
+.cta-scarcity{
+  display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:8px 15px;
+  border:1px solid rgba(244,240,230,.18);background:rgba(244,240,230,.06);border-radius:999px;
+  font-size:.78rem;line-height:1.45;color:rgba(244,240,230,.72);text-align:left;
+}
+.cta-scarcity b{color:#F0C6B3}
+.cta-scarcity i{width:7px;height:7px;border-radius:50%;background:#E9A183;flex:0 0 auto;animation:urgPulse 2.2s infinite}
 .cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;margin-top:30px}
 .cta-actions .btn{padding:15px 24px}
 .cta-next{
@@ -964,6 +1095,7 @@ body.modal-open{overflow:hidden}
    ============================================================ */
 @media (max-width:1080px){
   .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .adv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .biz-shell{grid-template-columns:214px minmax(0,1fr)}
   .biz-panel{grid-template-columns:1fr}
   .biz-preview{min-height:380px}
@@ -991,6 +1123,7 @@ body.modal-open{overflow:hidden}
   .biz-feat:first-child,.biz-feat:nth-child(2){border-top:0}
   .biz-feat:first-child{border-top:1px solid var(--line)}
   .compare{grid-template-columns:1fr}
+  .cost-shell{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr;gap:34px}
   .steps::before{top:0;bottom:0;left:27px;right:auto;width:1px;height:auto;background:repeating-linear-gradient(180deg,var(--line-2) 0 5px,transparent 5px 11px)}
   .step{display:grid;grid-template-columns:56px 1fr;column-gap:20px;padding:0}
@@ -1050,6 +1183,16 @@ body.modal-open{overflow:hidden}
 }
 @media (max-width:640px){
   .feature-grid{grid-template-columns:1fr}
+  .adv-grid{grid-template-columns:1fr;gap:11px}
+  .adv-card{padding:19px 18px 17px}
+  .adv-truth{grid-template-columns:1fr;gap:10px;padding:18px}
+  .adv-truth svg{width:19px;height:19px}
+  .calc-field{grid-template-columns:1fr;gap:8px}
+  .calc-input{justify-self:start}
+  .calc-input input{width:96px}
+  .cost-item{padding:14px}
+  .hero-urgency{font-size:.72rem;padding:10px 13px;border-radius:14px;align-items:flex-start;text-align:left}
+  .hero-urgency i{margin-top:5px}
   .fcard-mock{height:186px}
   .filters{gap:6px}
   .chip{padding:8px 12px;font-size:.75rem}
@@ -1154,6 +1297,7 @@ body.modal-open{overflow:hidden}
       <a class="nav-link" href="#features">Possibilities</a>
       <a class="nav-link" href="#businesses">Your business</a>
       <a class="nav-link" href="#difference">The difference</a>
+      <a class="nav-link" href="#cost">Why now</a>
       <a class="nav-link" href="#process">How it works</a>
     </nav>
     <div class="nav-right">
@@ -1171,8 +1315,9 @@ body.modal-open{overflow:hidden}
     <a class="mm-link" href="#features"><span>01</span>Possibilities</a>
     <a class="mm-link" href="#businesses"><span>02</span>Your business</a>
     <a class="mm-link" href="#difference"><span>03</span>The difference</a>
-    <a class="mm-link" href="#process"><span>04</span>How it works</a>
-    <a class="mm-link" href="#start"><span>05</span>Get started</a>
+    <a class="mm-link" href="#cost"><span>04</span>Why now</a>
+    <a class="mm-link" href="#process"><span>05</span>How it works</a>
+    <a class="mm-link" href="#start"><span>06</span>Get started</a>
   </nav>
   <div class="mm-foot">
     <a class="btn btn--primary" href="#start">Get your website <svg class="i-arrow" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
@@ -1194,6 +1339,7 @@ body.modal-open{overflow:hidden}
         <a class="btn btn--primary" href="#features">Explore what's possible <svg class="i-arrow" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
         <a class="btn btn--ghost" href="#start">Let's build your website</a>
       </div>
+      <p class="hero-urgency" data-reveal style="--d:210ms"><i aria-hidden="true"></i> <span>We build only <b>3 websites a month</b> — this month's slots are almost gone.</span></p>
       <ul class="hero-trust" data-reveal style="--d:240ms">
         <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Built around your business</li>
         <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Easy on every phone</li>
@@ -1710,11 +1856,91 @@ body.modal-open{overflow:hidden}
   </div>
 </section>
 
+<!-- ============================ ADVANTAGES ============================ -->
+<section class="section adv" id="advantages">
+  <div class="wrap">
+    <div class="sec-head sec-head--row" data-reveal>
+      <div class="sec-head-copy">
+        <span class="eyebrow"><span class="num">03</span> What you actually gain</span>
+        <h2>A website isn't a brochure. It's <span class="serif">the employee who never sleeps.</span></h2>
+        <p class="lead">Behind every feature is a business result. Here is what quietly changes once your website starts working for you.</p>
+      </div>
+    </div>
+
+    <div class="adv-grid">
+      <article class="adv-card" data-reveal>
+        <div class="adv-top">
+          <span class="adv-icon"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></span>
+          <span class="adv-ghost">01</span>
+        </div>
+        <h3>You look established before you say a word.</h3>
+        <p>A clean website builds trust before the first call — prices, photos, reviews and answers, all in one place.</p>
+        <span class="adv-flag"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg> First impression</span>
+      </article>
+
+      <article class="adv-card" data-reveal style="--d:70ms">
+        <div class="adv-top">
+          <span class="adv-icon"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
+          <span class="adv-ghost">02</span>
+        </div>
+        <h3>You win the customer at 9pm.</h3>
+        <p>People research after work, when your shop is shut. Your site keeps answering and taking enquiries while you sleep.</p>
+        <span class="adv-flag"><svg viewBox="0 0 24 24"><use href="#i-zap"/></svg> Works after hours</span>
+      </article>
+
+      <article class="adv-card adv-card--hot" data-reveal style="--d:140ms">
+        <div class="adv-top">
+          <span class="adv-icon"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></span>
+          <span class="adv-ghost">03</span>
+        </div>
+        <h3>You stop losing to a worse competitor.</h3>
+        <p>Customers can't judge your work from a blurry photo. They judge how you present it — and pick the one that looks safer.</p>
+        <span class="adv-flag"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Trust</span>
+      </article>
+
+      <article class="adv-card" data-reveal style="--d:210ms">
+        <div class="adv-top">
+          <span class="adv-icon"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></span>
+          <span class="adv-ghost">04</span>
+        </div>
+        <h3>You can charge what you're worth.</h3>
+        <p>When your work is shown properly, price becomes a detail instead of the whole conversation.</p>
+        <span class="adv-flag"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg> Better pricing</span>
+      </article>
+
+      <article class="adv-card" data-reveal style="--d:280ms">
+        <div class="adv-top">
+          <span class="adv-icon"><svg viewBox="0 0 24 24"><use href="#i-info"/></svg></span>
+          <span class="adv-ghost">05</span>
+        </div>
+        <h3>You answer once, not forty times.</h3>
+        <p>Prices, timings, directions and common questions sit in one place. Your phone gets quieter, your day gets calmer.</p>
+        <span class="adv-flag"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Less repeat work</span>
+      </article>
+
+      <article class="adv-card" data-reveal style="--d:350ms">
+        <div class="adv-top">
+          <span class="adv-icon"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></span>
+          <span class="adv-ghost">06</span>
+        </div>
+        <h3>You own something that lasts.</h3>
+        <p>Social pages change the rules overnight. Your website is yours — your domain, your content, your customers.</p>
+        <span class="adv-flag"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Long-term asset</span>
+      </article>
+    </div>
+
+    <div class="adv-truth" data-reveal>
+      <svg viewBox="0 0 24 24"><use href="#i-zap"/></svg>
+      <p><b>The uncomfortable part:</b> your competitor is not better than you. He's just easier to find. Customers choose the business they can understand fastest — and that is almost always the one with a proper website.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ BUSINESSES ============================ -->
 <section class="section biz" id="businesses">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="eyebrow"><span class="num">03</span> Made for your trade</span>
+      <span class="eyebrow"><span class="num">04</span> Made for your trade</span>
       <h2>Different businesses need <span class="serif">different</span> websites.</h2>
       <p class="lead">Pick the closest match to your business. We'll show you the features that usually matter most — and the difference they make.</p>
     </div>
@@ -1781,7 +2007,7 @@ body.modal-open{overflow:hidden}
 <section class="section" id="difference">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="eyebrow"><span class="num">04</span> The difference</span>
+      <span class="eyebrow"><span class="num">05</span> The difference</span>
       <h2>What actually <span class="serif">changes</span> when you have a website?</h2>
       <p class="lead">No magic, no guarantees. A website simply removes the small obstacles that quietly cost you enquiries — and makes your business easier to choose.</p>
     </div>
@@ -1821,12 +2047,67 @@ body.modal-open{overflow:hidden}
   </div>
 </section>
 
+<!-- ============================ COST OF WAITING ============================ -->
+<section class="section cost" id="cost">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow"><span class="num">06</span> The cost of waiting</span>
+      <h2>Waiting isn't free. It just <span class="serif">bills you quietly.</span></h2>
+      <p class="lead">You never see the customers who left. You only see a quiet week and assume it's the season. Put your own numbers in and see what a slow decision is actually costing you.</p>
+    </div>
+
+    <div class="cost-shell" data-reveal>
+      <div class="calc">
+        <span class="calc-head"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg> Your numbers, not ours</span>
+        <h3>What is one missed customer worth to you?</h3>
+        <p>Most owners underestimate this. Use your average sale — not your best one.</p>
+        <div class="calc-fields">
+          <div class="calc-field">
+            <label for="calcValue">Average value of one customer</label>
+            <span class="calc-input"><span>₹</span><input id="calcValue" type="number" min="0" max="10000000" step="500" value="5000" inputmode="numeric" aria-label="Average value of one customer in rupees"></span>
+          </div>
+          <div class="calc-field">
+            <label for="calcMissed">Enquiries you think you miss each month</label>
+            <span class="calc-input"><input id="calcMissed" type="number" min="0" max="500" step="1" value="4" inputmode="numeric" aria-label="Missed enquiries per month"><span>/ mo</span></span>
+          </div>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <small>You could be leaving behind</small>
+          <p class="calc-big" id="calcMonth">₹20,000<em>a month</em></p>
+          <p class="calc-year">That's <b id="calcYear">₹2,40,000</b> a year — before a single ad is run.</p>
+          <p class="calc-foot">This isn't a forecast. It's your own estimate of what one extra enquiry is worth. Even a third of it pays for the website many times over.</p>
+        </div>
+      </div>
+
+      <div class="cost-side">
+        <div class="cost-item">
+          <i><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></i>
+          <div><b>They look you up and find nothing.</b><span>People check a business online before they call. If there's nothing to find, most of them simply don't call.</span></div>
+        </div>
+        <div class="cost-item">
+          <i><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></i>
+          <div><b>The other guy looks more real.</b><span>Same work, same price — but his website answers at 11pm and yours doesn't. Guess who gets the message.</span></div>
+        </div>
+        <div class="cost-item">
+          <i><svg viewBox="0 0 24 24"><use href="#i-image"/></svg></i>
+          <div><b>Your best work disappears.</b><span>Photos buried in your phone gallery never convince anyone. The ones on a website keep selling while you're busy.</span></div>
+        </div>
+        <div class="cost-item">
+          <i><svg viewBox="0 0 24 24"><use href="#i-phone"/></svg></i>
+          <div><b>You keep repeating yourself.</b><span>Price, timing, location, parking — typed out again and again, for free, every single day.</span></div>
+        </div>
+        <p class="cost-kicker">One recovered job a month usually covers the whole build. <b>Everything after that is profit.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ PROCESS ============================ -->
 <section class="section process" id="process">
   <div class="wrap">
     <div class="sec-head sec-head--row" data-reveal>
       <div class="sec-head-copy">
-        <span class="eyebrow"><span class="num">05</span> How it works</span>
+        <span class="eyebrow"><span class="num">07</span> How it works</span>
         <h2>A website built around <span class="serif">your business.</span></h2>
         <p class="lead">We don't paste the same template in front of every customer. We start with how your business actually works, then build the website that fits it.</p>
       </div>
@@ -1861,9 +2142,13 @@ body.modal-open{overflow:hidden}
     <div class="cta-panel" data-reveal>
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="cta-inner">
-        <span class="eyebrow eyebrow--dark"><span class="num">06</span> Ready when you are</span>
+        <span class="eyebrow eyebrow--dark"><span class="num">08</span> Ready when you are</span>
         <h2>Your business deserves more than just a <span class="serif">social media page.</span></h2>
         <p>Let's build a website that presents your business professionally and makes it easier for customers to discover, understand, and contact you.</p>
+        <div class="cta-scarcity">
+          <i aria-hidden="true"></i>
+          <span><b>3 websites a month, no more.</b> This month's slots are nearly gone — ask before they close.</span>
+        </div>
         <div class="cta-actions">
           <a class="btn btn--light" href="mailto:hello@studionorth.com" data-email data-email-subject="I'd like a website for my business">Get your website <svg class="i-arrow" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--wa-ghost" href="https://wa.me/919876543210" data-wa data-wa-msg="Hi! I'd like to build a website for my business. Can we talk?" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;stroke:none"><use href="#i-wa"/></svg> Chat with us on WhatsApp</a>
@@ -1872,6 +2157,7 @@ body.modal-open{overflow:hidden}
           <span><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> No jargon</span>
           <span><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Clear pricing</span>
           <span><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> You own everything</span>
+          <span><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Free design preview</span>
           <span><svg viewBox="0 0 24 24"><use href="#i-check"/></svg> Friendly support</span>
         </div>
         <p class="cta-note">Prefer email? Write to <a href="mailto:hello@studionorth.com" data-email data-email-text>hello@studionorth.com</a> — we usually reply within a few hours.</p>
@@ -2040,7 +2326,7 @@ mobileMenu.addEventListener("keydown", (e) => {
 });
 
 /* Sections used for active nav state */
-const trackedSections = ["features", "businesses", "difference", "process"]
+const trackedSections = ["features", "businesses", "difference", "cost", "process"]
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 
@@ -2100,6 +2386,39 @@ if ("IntersectionObserver" in window && !reduceMotion) {
   revealEls.forEach((el) => io.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add("is-in"));
+}
+
+/* ============================================================
+   Cost-of-waiting calculator
+   ============================================================ */
+const calcValue = $("#calcValue");
+const calcMissed = $("#calcMissed");
+const calcMonth = $("#calcMonth");
+const calcYear = $("#calcYear");
+
+function inr(n) {
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+
+function updateCalc() {
+  if (!calcValue || !calcMissed || !calcMonth || !calcYear) return;
+  const value = Math.max(0, Math.min(10000000, Number(calcValue.value) || 0));
+  const missed = Math.max(0, Math.min(500, Number(calcMissed.value) || 0));
+  const month = value * missed;
+  calcMonth.innerHTML = inr(month) + "<em>a month</em>";
+  calcYear.textContent = inr(month * 12);
+}
+
+if (calcValue && calcMissed) {
+  [calcValue, calcMissed].forEach((el) => {
+    el.addEventListener("input", updateCalc);
+    el.addEventListener("change", updateCalc);
+    el.addEventListener("blur", () => {
+      if (el.value === "") el.value = el === calcValue ? 5000 : 4;
+      updateCalc();
+    });
+  });
+  updateCalc();
 }
 
 /* ============================================================
